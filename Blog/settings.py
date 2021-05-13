@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -75,12 +77,25 @@ WSGI_APPLICATION = 'Blog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd6ifenuvbeb6lv',
+        'USER' : 'cmsxokltqtglpu', 
+        'PASSWORD' : '2167de95352d17ddf1d13d9554aca2bd1b709f5d7263afd748596b2e21f782bc',
+        'HOST' : 'ec2-18-215-111-67.compute-1.amazonaws.com',
+        'PORT' : '5432',
     }
 }
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES[ 'default' ].update(db_from_env)
 
 
 # Password validation
@@ -126,7 +141,6 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-import os
 STATICFILES_DIRS = [os.path.join(BASE_DIR,"static")]
 
 STATIC_ROOT = os.path.join(BASE_DIR, '.static_root')
