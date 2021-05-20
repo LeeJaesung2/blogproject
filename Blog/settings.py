@@ -87,10 +87,10 @@ WSGI_APPLICATION = 'Blog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd6ifenuvbeb6lv',
-        'USER' : 'cmsxokltqtglpu', 
-        'PASSWORD' : '2167de95352d17ddf1d13d9554aca2bd1b709f5d7263afd748596b2e21f782bc',
-        'HOST' : 'ec2-18-215-111-67.compute-1.amazonaws.com',
+        'NAME': 'deu6v4ec7rfqsi',
+        'USER' : 'hhvnurkjvzjxjg', 
+        'PASSWORD' : '88819dbb9cc9a85a6e67a0aeb9dec1db933b6d911dccb8e008dca0fce82286c0',
+        'HOST' : 'ec2-34-232-191-133.compute-1.amazonaws.com',
         'PORT' : '5432',
     }
 }
@@ -144,3 +144,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = [os.path.join(BASE_DIR,"static")]
 
 STATIC_ROOT = os.path.join(BASE_DIR, '.static_root')
+
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+MEDIA_URL='/media/'

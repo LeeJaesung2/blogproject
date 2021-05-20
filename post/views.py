@@ -17,7 +17,7 @@ def detail(request,blog_id):
 
 def create(request):
     if request.method == 'POST':
-        form = CreatePostForm(request.POST)
+        form = CreatePostForm(request.POST,request.FILES)
         if form.is_valid():
             # blog = Blog()
             # blog.title = form.cleaned_data['title']
@@ -41,7 +41,7 @@ def create(request):
 def update(request,blog_id):
     blog = Blog.objects.get(id=blog_id)
     if request.method =="POST":
-        form = CreatePostForm(request.POST, instance=blog)
+        form = CreatePostForm(request.POST,request.FILES, instance=blog)
         if form.is_valid():
             blog = form.save()
             return redirect('/detail/'+str(blog_id))

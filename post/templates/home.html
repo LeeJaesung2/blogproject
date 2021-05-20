@@ -14,10 +14,12 @@
         <a href="{% url 'update' blog.id %}"><span>수정</span></a>
         <a href="{% url 'delete' blog.id %}"><span>삭제</span></a>
         <a href="{% url 'detail' blog.id %}">{{blog.title}}</a>
-        <hr>
+        <hr><hr>
     </div>
     {% endfor %}
     <a href="{% url 'create' %}">새로 만들기</a>
+    <hr><hr>
+    <img src="{% static 'image/mutsa.jpg' %}" alt="" height="300px" width="300px">
 
     <hr>
 
